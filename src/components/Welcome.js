@@ -25,8 +25,8 @@ class Welcome extends Component {
                     </form>
 
                     <div className='login-form_footer'>
-                        <a href="#">APPLY</a>
-                        <a href="#">ABOUT</a>
+                        <a href="/">APPLY</a>
+                        <a href="/">ABOUT</a>
                     </div>
                 </div>
 
