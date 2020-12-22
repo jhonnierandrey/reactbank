@@ -1,12 +1,38 @@
-.App {
-  text-align: center;
+// Importing FontAwesome for Icons
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css");
+// Importing Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+* { box-sizing: border-box; }
+
+/* PALETTE */
+
+$blue : #61DAFB;
+$darkBlue : #326F80; 
+$black : #000000;
+$white : #FFFFFF;
+
+/* EXTRA VARIANTS */
+
+$default-font: 'Josefin Sans', Helvetica, sans-serif;
+
+body {
+  font-family: $default-font;
+  background-color: $black;
   background-image: url('images/reactbank-bg.jpg');
   background-size: cover;
   background-position: center;
+}
+
+.App {
+  text-align: center;
+  // background-image: url('images/reactbank-bg.jpg');
+  // background-size: cover;
+  // background-position: center;
   min-height: 100vh;
   display: flex;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: $white;
 }
 
 .App-header, .screen-alert {
@@ -15,7 +41,7 @@
   align-items: center;
   justify-content: flex-end;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: $white;
 }
 
 .App-header img, .screen-alert img {
@@ -73,5 +99,12 @@
 
   .App-header {
     display: none !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .App{
+    width: 1200px;
+    margin: auto;
   }
 }
