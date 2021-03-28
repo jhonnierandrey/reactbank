@@ -165,9 +165,76 @@ body {
     width: 100%;
     font-size: x-small;
   }
+
+  .modal-container {
+    display: none;
+    background-image: url("images/reactbank-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    padding: 50px;
+  }
+
+  .modal-box {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.54);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+  }
+  .modal-box p {
+    margin: 0;
+  }
+
+  .dashboard-container {
+    display: none;
+    width: 100%;
+    background-color: #FFFFFF;
+  }
+
+  nav {
+    background-color: #000000;
+  }
+  nav .navbar-toggler {
+    color: #FFFFFF;
+  }
+
+  section.account {
+    display: none;
+  }
+
+  .dashboard-container section {
+    color: #000000;
+  }
+  .dashboard-container section article.actions button {
+    margin: 0px 5px;
+  }
+  .dashboard-container section article.transactions ul {
+    width: 90%;
+    margin: auto;
+    padding: 0;
+  }
+  .dashboard-container section article.transactions li {
+    list-style: none;
+    text-align: left;
+    border-bottom: 1px solid lightgray;
+  }
+  .dashboard-container section article.account-information-update {
+    display: none;
+    width: 90%;
+    margin: auto;
+    text-align: left;
+  }
 }
 @media only screen and (min-width: 600px) {
-  .login-form, .apply-form, .about {
+  .login-form, .apply-form, .about, .modal-container, .dashboard-container {
     display: none !important;
   }
 

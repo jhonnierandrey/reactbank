@@ -192,10 +192,90 @@ body {
       font-size: x-small;
     }
   }
+
+  .modal-container {
+    display: none;
+    background-image: url('images/reactbank-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    padding: 50px;
+  }
+  
+  .modal-box {
+    display: flex;
+    background-color: rgba($color: #000000, $alpha: 0.54);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // Dashboard elements
+  .dashboard-container {
+    display: none;
+    width: 100%;
+    background-color: $white;
+  }
+
+  nav {
+    background-color: $black;
+    
+    .navbar-toggler {
+      color: $white;
+    }
+  }
+
+  // Dasboard Elements
+
+  section.account {
+    display: none;
+  }
+
+  .dashboard-container section {
+    color: $black;
+
+    article.actions button {
+      margin: 0px 5px;
+    }
+
+    // HOME
+
+    article.transactions ul {
+      width: 90%;
+      margin: auto;
+      padding: 0;
+    }
+
+    article.transactions li {
+      list-style: none;
+      text-align: left;
+      border-bottom: 1px solid lightgray;
+    }
+
+    // ACCOUNT 
+
+    article.account-information-update {
+      display: none;
+      width: 90%;
+      margin: auto;
+      text-align: left;
+    }
+  }
 }
 
 @media only screen and (min-width: 600px) {
-  .login-form, .apply-form, .about {
+  .login-form, .apply-form, .about, .modal-container, .dashboard-container {
     display: none !important;
   }
 
