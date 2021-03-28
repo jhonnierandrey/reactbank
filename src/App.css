@@ -12,6 +12,7 @@ body {
   background-image: url("images/reactbank-bg.jpg");
   background-size: cover;
   background-position: center;
+  transition: all 1s ease-in-out;
 }
 
 .App {
@@ -20,6 +21,7 @@ body {
   display: flex;
   font-size: calc(10px + 2vmin);
   color: #FFFFFF;
+  transition: all 1s ease-in-out;
 }
 
 .App-header, .screen-alert {
@@ -29,6 +31,7 @@ body {
   justify-content: flex-end;
   font-size: calc(10px + 2vmin);
   color: #FFFFFF;
+  transition: all 1s ease-in-out;
 }
 
 .App-header img, .screen-alert img {
@@ -38,6 +41,41 @@ body {
 .login-form img {
   margin-top: 120px;
   width: 75%;
+}
+
+.apply-form img {
+  margin-top: 120px;
+  width: 75%;
+}
+
+.about img {
+  margin: auto;
+  margin-top: 120px;
+  width: 75%;
+}
+
+.btn-primary {
+  background-color: #61DAFB;
+  color: #326F80;
+  padding: 1px;
+  width: 70%;
+}
+
+.btn-primary:hover {
+  background-color: #326F80;
+  color: #61DAFB;
+}
+
+.form-errors {
+  display: none;
+  font-size: small;
+  color: red;
+}
+.form-errors ul {
+  padding: 0;
+}
+.form-errors li {
+  list-style: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -55,6 +93,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    transition: all 1s ease-in-out;
+  }
+  .login-form form button {
+    width: 100%;
   }
 
   .login-form form {
@@ -63,6 +105,7 @@ body {
     height: 27%;
     flex-flow: column;
     justify-content: space-between;
+    transition: all 1s ease-in-out;
   }
 
   .login-form_footer {
@@ -76,9 +119,55 @@ body {
     text-decoration: underline;
     color: #FFFFFF;
   }
+
+  .apply-form {
+    display: none;
+    background: rgba(0, 0, 0, 0.54);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 1s ease-in-out;
+  }
+  .apply-form form {
+    width: 75%;
+    display: flex;
+    height: 27%;
+    flex-flow: column;
+    justify-content: space-between;
+    transition: all 1s ease-in-out;
+  }
+  .apply-form form input.half {
+    width: 50%;
+  }
+  .apply-form form button {
+    width: 100%;
+  }
+
+  .about {
+    display: none;
+    background: rgba(0, 0, 0, 0.54);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 1s ease-in-out;
+  }
+  .about section {
+    width: 75%;
+    display: flex;
+    height: 27%;
+    flex-flow: column;
+    justify-content: space-between;
+    transition: all 1s ease-in-out;
+  }
+
+  .footer-copyright li {
+    list-style: none;
+    width: 100%;
+    font-size: x-small;
+  }
 }
 @media only screen and (min-width: 600px) {
-  .login-form {
+  .login-form, .apply-form, .about {
     display: none !important;
   }
 

@@ -15,6 +15,7 @@ $white : #FFFFFF;
 /* EXTRA VARIANTS */
 
 $default-font: 'Josefin Sans', Helvetica, sans-serif;
+$default-transition : all 1s ease-in-out;
 
 body {
   font-family: $default-font;
@@ -22,6 +23,7 @@ body {
   background-image: url('images/reactbank-bg.jpg');
   background-size: cover;
   background-position: center;
+  transition: $default-transition;
 }
 
 .App {
@@ -33,6 +35,7 @@ body {
   display: flex;
   font-size: calc(10px + 2vmin);
   color: $white;
+  transition: $default-transition;
 }
 
 .App-header, .screen-alert {
@@ -42,6 +45,7 @@ body {
   justify-content: flex-end;
   font-size: calc(10px + 2vmin);
   color: $white;
+  transition: $default-transition;
 }
 
 .App-header img, .screen-alert img {
@@ -51,6 +55,43 @@ body {
 .login-form img {
   margin-top: 120px;
   width: 75%;
+}
+
+.apply-form img {
+  margin-top: 120px;
+  width: 75%;
+}
+
+.about img {
+  margin: auto;
+  margin-top: 120px;
+  width: 75%;
+}
+
+.btn-primary {
+  background-color: $blue;
+  color: $darkBlue;
+  padding: 1px;
+  width: 70%;
+}
+
+.btn-primary:hover {
+  background-color: $darkBlue;
+  color: $blue;
+}
+
+.form-errors {
+  display: none;
+  font-size: small;
+  color: red;
+
+  ul {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -69,6 +110,11 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    transition: $default-transition;
+
+    form button {
+      width: 100%;
+    }
   }
 
   .login-form form {
@@ -77,6 +123,7 @@ body {
     height: 27%;
     flex-flow: column;
     justify-content: space-between;
+    transition: $default-transition;
   }
 
   .login-form_footer {
@@ -90,10 +137,65 @@ body {
     text-decoration: underline;
     color: #FFFFFF;
   }
+
+  .apply-form {
+    display: none;
+    //width: 100%;
+    background: rgba($color: #000000, $alpha: 0.54);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: $default-transition;
+
+    form {
+      width: 75%;
+      display: flex;
+      height: 27%;
+      flex-flow: column;
+      justify-content: space-between;
+      transition: $default-transition;
+    }
+
+    form input.half {
+      width: 50%;
+    }
+
+    form button {
+      width: 100%;
+    }
+  }
+
+  .about {
+    display: none;
+    //width: 100%;
+    background: rgba($color: #000000, $alpha: 0.54);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: $default-transition;
+
+    section {
+      width: 75%;
+      display: flex;
+      height: 27%;
+      flex-flow: column;
+      justify-content: space-between;
+      transition: $default-transition;
+    }
+  }
+
+  .footer-copyright {
+    li {
+      list-style: none;
+      // display: flex;
+      width: 100%;
+      font-size: x-small;
+    }
+  }
 }
 
 @media only screen and (min-width: 600px) {
-  .login-form {
+  .login-form, .apply-form, .about {
     display: none !important;
   }
 
