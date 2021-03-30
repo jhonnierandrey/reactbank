@@ -12,27 +12,7 @@ class Login extends Component {
         const username = this.usernameInput.current.value;
         const password = this.passwordInput.current.value;
 
-        this.callapi(username, password)
-    }
-
-    callapi(username, password){
-        const url = "https://reactbank-back-end.herokuapp.com/api/login/";
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: username,
-                password: password,
-            })
-            }
-        )
-        .then(response => response.json())
-        .then(result => this.setState({msg : result.msg}))
-        .then(console.log(this.state.msg))
+        this.props.callapi(username, password)
     }
 
     render(){
