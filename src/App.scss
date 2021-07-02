@@ -11,6 +11,7 @@ $blue : #61DAFB;
 $darkBlue : #326F80; 
 $black : #000000;
 $white : #FFFFFF;
+$transparent-black: rgba($color: #000000, $alpha: 0.54);
 
 /* EXTRA VARIANTS */
 
@@ -94,7 +95,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .screen-alert {
     display: none;
   }
@@ -106,7 +107,7 @@ body {
   .login-form {
     display: none;
     //width: 100%;
-    background: rgba($color: #000000, $alpha: 0.54);
+    background: $transparent-black;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -223,7 +224,6 @@ body {
 
   // Dashboard elements
   .dashboard-container {
-    display: none;
     width: 100%;
     background-color: $white;
   }
@@ -274,19 +274,200 @@ body {
   }
 }
 
-@media only screen and (min-width: 600px) {
-  .login-form, .apply-form, .about, .modal-container, .dashboard-container {
-    display: none !important;
+@media only screen and (min-width: 768px) {
+  .screen-alert {
+    display: none;
   }
 
   .App-header {
-    display: none !important;
+    justify-content: center;
+    width: 30%;
+    background-color: $transparent-black;
+  }
+
+  .login-form {
+    display: none;
+    width: 30%;
+    background: rgba($color: #000000, $alpha: 0.54);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: $default-transition;
+
+    form button {
+      width: 100%;
+    }
+  }
+
+  .login-form form {
+    width: 75%;
+    display: flex;
+    height: 27%;
+    flex-flow: column;
+    justify-content: space-between;
+    transition: $default-transition;
+  }
+
+  .login-form_footer {
+    margin-bottom: 26px;
+    width: 75%;
+    text-align: right;
+  }
+
+  .login-form_footer a {
+    padding: 5px;
+    text-decoration: underline;
+    color: #FFFFFF;
+  }
+
+  .apply-form {
+    display: none;
+    width: 30%;
+    background: $transparent-black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: $default-transition;
+
+    form {
+      width: 75%;
+      display: flex;
+      height: 27%;
+      flex-flow: column;
+      justify-content: space-between;
+      transition: $default-transition;
+    }
+
+    form input.half {
+      width: 50%;
+    }
+
+    form button {
+      width: 100%;
+    }
+  }
+
+  .about {
+    display: none;
+    //width: 100%;
+    background: rgba($color: #000000, $alpha: 0.54);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: $default-transition;
+
+    section {
+      width: 75%;
+      display: flex;
+      height: 27%;
+      flex-flow: column;
+      justify-content: space-between;
+      transition: $default-transition;
+    }
+  }
+
+  .footer-copyright {
+    li {
+      list-style: none;
+      // display: flex;
+      width: 100%;
+      font-size: x-small;
+    }
+  }
+
+  .modal-container {
+    display: none;
+    background-image: url('images/reactbank-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    padding: 50px;
+  }
+  
+  .modal-box {
+    display: flex;
+    background-color: rgba($color: #000000, $alpha: 0.54);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  // Dashboard elements
+  .dashboard-container {
+    width: 100%;
+    background-color: $white;
+  }
+
+  nav {
+    background-color: $black;
+    
+    .navbar-toggler {
+      color: $white;
+    }
+  }
+
+  // Dasboard Elements
+
+  section.account {
+    display: none;
+  }
+
+  .dashboard-container section {
+    color: $black;
+
+    article.actions button {
+      margin: 0px 5px;
+    }
+
+    // HOME
+
+    article.transactions ul {
+      width: 90%;
+      margin: auto;
+      padding: 0;
+    }
+
+    article.transactions li {
+      list-style: none;
+      text-align: left;
+      border-bottom: 1px solid lightgray;
+    }
+
+    // ACCOUNT 
+
+    article.account-information-update {
+      display: none;
+      width: 90%;
+      margin: auto;
+      text-align: left;
+    }
   }
 }
 
-@media (min-width: 1400px) {
-  .App{
-    width: 1200px;
-    margin: auto;
-  }
-}
+// @media only screen and (min-width: 600px) {
+//   .login-form, .apply-form, .about, .modal-container, .dashboard-container {
+//     display: none !important;
+//   }
+
+//   .App-header {
+//     display: none !important;
+//   }
+// }
+
+// @media (min-width: 1400px) {
+//   .App{
+//     width: 1200px;
+//     margin: auto;
+//   }
+// }
