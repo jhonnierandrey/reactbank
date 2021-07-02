@@ -95,6 +95,10 @@ body {
   }
 }
 
+.modal-dashboard {
+  color: $black;
+}
+
 @media only screen and (max-width: 768px) {
   .screen-alert {
     display: none;

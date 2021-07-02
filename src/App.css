@@ -78,6 +78,10 @@ body {
   list-style: none;
 }
 
+.modal-dashboard {
+  color: #000000;
+}
+
 @media only screen and (max-width: 768px) {
   .screen-alert {
     display: none;
