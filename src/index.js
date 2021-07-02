@@ -19,11 +19,49 @@ import {
 //   document.getElementById('root')
 // );
 
+let routes = [];
+
+if (window.localStorage.getItem('userData')) {
+  routes = [
+    {
+      path: "/",
+      exact: true,
+      component: Dashboard
+    },{
+      path: "/dashboard",
+      exact: true,
+      component: Dashboard
+    },{
+      path: "/logout",
+      exact: true,
+      component: () => {
+        localStorage.clear();
+        window.location.href = '/'
+      }
+    },
+  ]
+}else{
+  routes = [
+    {
+      path: "/",
+      exact: true,
+      component: App
+    }
+  ]
+}
+
 const routing = (
   <Router>
     <Switch>
-      <Route exact path="/" component={App} />
-      <Route exact path="/dashboard" component={Dashboard} />
+      { routes.map((route, index) => (
+        <Route
+          key={index}
+          path={route.path}
+          exact={route.exact}
+          component={route.component}
+        />
+      ))}
+      <Route component={ () => {window.location.href = '/'}} />
     </Switch>
   </Router>
 )

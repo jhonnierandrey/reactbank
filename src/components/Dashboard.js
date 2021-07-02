@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 
-import {Navbar, Account, Home} from './partials/index';
+import {Navbar, Account, Home, Modal} from './partials/index';
 
 class Dashboard extends Component {
+
+    componentDidMount(){
+        document.querySelector('title').innerText = 'ReactBank | Dashboard'
+    }
 
     render(){
         let accountData = '';
@@ -11,7 +15,6 @@ class Dashboard extends Component {
         if(window.localStorage.getItem('userData')){
             let data = JSON.parse(window.localStorage.getItem('userData'));
 
-            console.log(data)
             accountData = data.accountData;
             userData = data;
         }
@@ -28,6 +31,9 @@ class Dashboard extends Component {
                         userData = {userData}
                     />
                 </div>
+                <Modal
+                    accountData = {accountData}
+                />
             </div>
         )
     }

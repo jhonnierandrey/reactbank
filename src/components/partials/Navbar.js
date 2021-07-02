@@ -20,7 +20,7 @@ function Navbar() {
 
     return(
         <nav className="navbar navbar-expand-lg navbar-dark">
-            <a className="navbar-brand" href="/" onClick={showHome}>
+            <a className="navbar-brand" href="/">
                 <img src={nameLogo} width="150" className="d-inline-block align-top" alt="" />
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +36,7 @@ function Navbar() {
                     <a className="nav-link" href="/" onClick={showAccount}>Account</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/">Log out</a>
+                    <a className="nav-link" href="/logout">Log out</a>
                 </li>
                 </ul>
             </div>
