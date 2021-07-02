@@ -30,16 +30,6 @@ const show = {
 
         document.querySelector(".modal-container").style.display = 'flex';
         // document.querySelector(".login-form").style.display = 'none';
-    },
-    dashboard : (e) => {
-        if(e) e.preventDefault();
-  
-        document.querySelector(".modal-container").style.display = 'none';
-        document.querySelector(".login-form").style.display = 'none';
-        document.querySelector(".App-header").style.display = 'none';
-        document.querySelector(".apply-form").style.display = 'none';
-        document.querySelector(".about").style.display = 'none';
-        document.querySelector(".dashboard-container").style.display = 'initial';
     }
 }
 

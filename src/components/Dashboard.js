@@ -8,21 +8,26 @@ class Dashboard extends Component {
         let accountData = '';
         let userData ='';
 
-        if(this.props.userData){
-            accountData = this.props.userData.accountData;
-            userData = this.props.userData;
+        if(window.localStorage.getItem('userData')){
+            let data = JSON.parse(window.localStorage.getItem('userData'));
+
+            console.log(data)
+            accountData = data.accountData;
+            userData = data;
         }
 
         return(
-            <div className="dashboard-container">
-                <Navbar />
-                <br />
-                <Home
-                    accountData = {accountData}
-                />
-                <Account
-                    userData = {userData}
-                />
+            <div className="App">
+                <div className="dashboard-container">
+                    <Navbar />
+                    <br />
+                    <Home
+                        accountData = {accountData}
+                    />
+                    <Account
+                        userData = {userData}
+                    />
+                </div>
             </div>
         )
     }

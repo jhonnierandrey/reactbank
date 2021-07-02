@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import './App.css';
 import nameLogo from './images/reactBank.png';
 
-import { Apply, About, Dashboard, Login, Modal} from "./components/index";
+import { Apply, About, Login, Modal} from "./components/index";
 
 // custom functions to modify viewport.
 import show from './scripts'
@@ -58,7 +58,7 @@ class App extends Component {
             })
             .then(response => response.json())
             .then(result => this.setState({ userData : result.userData }))
-            .then(show.dashboard)
+            .then(this.saveUSER)
         }else{
             // hide modal & show login screen + errors
             document.querySelector(".modal-container").style.display = 'none';
@@ -67,8 +67,12 @@ class App extends Component {
         }
     }
 
-    render() {
+    saveUSER = () => {
+        window.localStorage.setItem('userData', JSON.stringify(this.state.userData))
+        window.location.href = '/dashboard'
+    }
 
+    render() {
         return (
             <div className="App">
                 <Login
@@ -87,9 +91,9 @@ class App extends Component {
                     showApply = {show.apply}
                 />
 
-                <Dashboard
+                {/* <Dashboard
                     userData = {this.state.userData}
-                />
+                /> */}
 
                 <header className="App-header">
                     <img src={nameLogo} alt='Logo'/>
@@ -105,8 +109,8 @@ class App extends Component {
 
                 <Modal />
             </div>
-            );
-        }
+        );
+    }
 }
 
 export default App;

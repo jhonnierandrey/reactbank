@@ -11,6 +11,7 @@ class Home extends Component {
                 <article className="actions">
                     <button type="button" className="btn btn-outline-success"><i className="fas fa-arrow-circle-down"></i> Deposit</button>
                     <button type="button" className="btn btn-outline-danger"><i className="fas fa-arrow-circle-up"></i> Withdrawal</button>
+                    <button type="button" className="btn btn-outline-info"><i className="fas fa-arrow-circle-up"></i> Transfer</button>
                 </article>
                 <hr />
                 <article className="transactions">
