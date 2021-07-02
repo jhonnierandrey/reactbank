@@ -19,11 +19,15 @@ class Login extends Component {
         return(
             <div className="login-form">
                 <img src={nameLogo} alt='Logo'/>
-                
-                <form onSubmit={this.getData}>
-                    <input ref={this.usernameInput} type="email" placeholder='e-mail' name="username" required/>
-                    <input ref={this.passwordInput} type="password" placeholder='password' name="password" required/>
 
+                <form onSubmit={this.getData}>
+                    <div className="form-group">
+                        <input className="form-control" ref={this.usernameInput} type="email" placeholder='E-mail' name="username" required />
+                    </div>
+                    <div className="form-group">
+                        <input className="form-control" ref={this.passwordInput} type="password" placeholder='Password' name="password" required />
+                    </div>
+                    
                     <div className="form-errors">
                         <ul>
                             <li>Incorrect username or password</li>
