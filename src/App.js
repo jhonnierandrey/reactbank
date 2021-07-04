@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import Cookies from 'universal-cookie'; will be implemented soon.
 
+// import axios from 'axios';
+
 import './App.css';
 import nameLogo from './images/reactBank.png';
 
@@ -20,16 +22,20 @@ class App extends Component {
     callapi = (username, password) => {
         document.querySelector(".modal-container").style.display = 'flex';
 
-        const url = "https://reactbank-back-end.herokuapp.com/api/login/";
+        const url = "http://localhost:3001/api/login";
         // localStorage.setItem("token", "value")
 
         fetch(url, {
             method: 'POST',
-            credentials: "same-origin",
+            credentials: 'include',
+            // headers: {
+            //     'Content-Type': 'application/json; charset=utf-8',
+            // },
             headers: {
-                'Content-Type': 'application/json; charset=utf-8',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Cache': 'no-cache'
             },
-            body: JSON.stringify({
+            body: new URLSearchParams({
                 email: username,
                 password: password,
             })
@@ -37,6 +43,53 @@ class App extends Component {
         .then(response => response.json())
         .then(result => this.setState({ msg : result.msg, token : result.token }))
         .then(this.verifyLogin)
+    }
+
+    createUserApi = (name, lastName, username, password, confirmation, ) => {
+        document.querySelector(".modal-container").style.display = 'flex';
+
+        const url = "http://localhost:3001/api/register";
+        // localStorage.setItem("token", "value")
+
+        fetch(url, {
+            method: 'POST',
+            credentials: 'include',
+            // headers: {
+            //     'Content-Type': 'application/json; charset=utf-8',
+            // },
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Cache': 'no-cache'
+            },
+            body: new URLSearchParams({
+                name: name,
+                lastName: lastName,
+                email: username,
+                password: password,
+                confirmation: confirmation,
+            })
+        })
+        // .then(response => console.log(response))
+        .then(response => response.json())
+        .then(result => {
+            if(result.msg === 'User created'){
+                document.querySelector(".modal-container").style.display = 'none';
+                document.querySelector('.apply-form-errors').style.display = 'initial';
+                let formErrors = document.querySelector('.apply-form-errors').querySelector('ul');
+
+                formErrors.innerHTML = `<li style="color: #00FF00">${result.msg}, you are being redirected to login...</li>`;
+                setTimeout(() => {
+                    show.login()
+                }, 3000)
+            }else{
+                document.querySelector(".modal-container").style.display = 'none';
+                document.querySelector('.apply-form-errors').style.display = 'initial';
+                let formErrors = document.querySelector('.apply-form-errors').querySelector('ul');
+
+                formErrors.innerHTML = `<li>${result.msg}</li>`;
+            }
+        })
+        // .then(this.verifyLogin)
     }
     
     verifyLogin = () => {
@@ -46,14 +99,28 @@ class App extends Component {
             // cookies.set('currentUser', this.state.username, {path: '/'});
             
             // get user data
-            const url = "https://reactbank-back-end.herokuapp.com/api/account";
+            const url = "http://localhost:3001/api/account";
+
+            // axios.post(url, {
+            //     withCredentials: true,
+            //     credentials: 'include',
+            //     headers: {
+            //         'Content-Type': 'application/json; charset=utf-8',
+            //     }
+            // })
+            // .then((response) => {
+            //     console.log(response)
+            // }, (error) => {
+            //     console.log(error);
+            // });
             
             fetch(url, {
-                method: 'GET',
-                credentials: "same-origin",
+                method: 'POST',
+                // credentials: "same-origin",
+                credentials: 'include',
                 headers: {
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'token' : this.state.token
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'token' : this.state.token,
                 }
             })
             .then(response => response.json())
@@ -82,6 +149,7 @@ class App extends Component {
                 />
 
                 <Apply
+                    createUserApi = {this.createUserApi}
                     showLogin = {show.login}
                     showAbout = {show.about}
                 />

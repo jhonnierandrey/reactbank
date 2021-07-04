@@ -2,7 +2,12 @@
 
 const show = {
     login : (e) => {
-        e.preventDefault();
+        if(e){
+            e.preventDefault();
+        }
+
+        // deletes previous error messages
+        document.querySelector('.form-errors').innerHTML = '';
 
         document.querySelector(".apply-form").style.display = 'none';
         document.querySelector(".login-form").style.display = 'flex';
@@ -10,7 +15,9 @@ const show = {
         document.querySelector(".about").style.display = 'none';
     },
     apply : (e) => {
-        e.preventDefault();
+        if(e){
+            e.preventDefault();
+        }
 
         document.querySelector(".login-form").style.display = 'none';
         document.querySelector(".App-header").style.display = 'none';
@@ -18,7 +25,9 @@ const show = {
         document.querySelector(".about").style.display = 'none';
     },
     about : (e) => {
-        e.preventDefault();
+        if(e){
+            e.preventDefault();
+        }
 
         document.querySelector(".login-form").style.display = 'none';
         document.querySelector(".App-header").style.display = 'none';
@@ -26,7 +35,9 @@ const show = {
         document.querySelector(".about").style.display = 'flex';
     },
     modal : (e) =>{
-        e.preventDefault();
+        if(e){
+            e.preventDefault();
+        }
 
         document.querySelector(".modal-container").style.display = 'flex';
         // document.querySelector(".login-form").style.display = 'none';
