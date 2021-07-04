@@ -9,13 +9,13 @@ class Dashboard extends Component {
     }
 
     render(){
-        let accountData = '';
+        // let accountData = '';
         let userData ='';
 
         if(window.localStorage.getItem('userData')){
             let data = JSON.parse(window.localStorage.getItem('userData'));
 
-            accountData = data.accountData;
+            // accountData = data.accountData;
             userData = data;
         }
 
@@ -25,14 +25,14 @@ class Dashboard extends Component {
                     <Navbar />
                     <br />
                     <Home
-                        accountData = {accountData}
+                        userData = {userData}
                     />
                     <Account
                         userData = {userData}
                     />
                 </div>
                 <Modal
-                    accountData = {accountData}
+                    userData = {userData}
                 />
             </div>
         )

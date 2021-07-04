@@ -30,8 +30,6 @@ class Login extends Component {
                     
                     <div className="form-errors">
                         <ul>
-                            <li>Incorrect username or password</li>
-                            <li>Incorrect username or password</li>
                         </ul>
                     </div>
 

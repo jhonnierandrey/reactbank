@@ -6,7 +6,7 @@ class Home extends Component {
         return(
             <section className="home">
                 <article className="available-balance">
-                    <h1>$<span>{this.props.accountData.available}</span></h1>
+                    <h1><span>{this.props.userData.balance}</span></h1>
                 </article>
                 <article className="actions">
                     <button type="button" className="btn btn-outline-success" data-toggle="modal" data-target="#depositModal"><i className="fas fa-arrow-circle-down"></i> Deposit</button>

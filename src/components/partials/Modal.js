@@ -16,7 +16,7 @@ class Modal extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <h1>$10,000</h1>
+                                <h1>$1,000.00</h1>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Close</button>
@@ -38,7 +38,7 @@ class Modal extends Component {
                             <div className="modal-body">
                             <form action="/dashboard">
                                 <div className="form-group">
-                                    <input type="number" autoComplete="off" className="form-control" id="withdrawal" aria-describedby="emailHelp" placeholder={"$" + this.props.accountData?.available} required/>
+                                    <input type="number" autoComplete="off" className="form-control" id="withdrawal" aria-describedby="emailHelp" placeholder={this.props.userData.balance} required/>
                                     <small id="emailHelp" className="form-text text-muted">Enter the amount you wish to withdrawal.</small>
                                 </div>
                             </form>
@@ -67,7 +67,7 @@ class Modal extends Component {
                                         <small id="emailHelp" className="form-text text-muted">Enter the email account.</small>
                                     </div>
                                     <div className="form-group">
-                                        <input type="number" autoComplete="off" className="form-control" id="withdrawal" aria-describedby="emailHelp" placeholder={"$" + this.props.accountData?.available} required/>
+                                        <input type="number" autoComplete="off" className="form-control" id="withdrawal" aria-describedby="emailHelp" placeholder={this.props.userData.balance} required/>
                                         <small id="emailHelp" className="form-text text-muted">Enter the amount you wish to transfer.</small>
                                     </div>
                                 </form>
