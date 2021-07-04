@@ -20,17 +20,17 @@ class Login extends Component {
             <div className="login-form">
                 <img src={nameLogo} alt='Logo'/>
 
+                <div className="form-errors">
+                    <ul>
+                    </ul>
+                </div>
+
                 <form onSubmit={this.getData}>
                     <div className="form-group">
                         <input className="form-control" ref={this.usernameInput} type="email" placeholder='E-mail' name="username" required />
                     </div>
                     <div className="form-group">
                         <input className="form-control" ref={this.passwordInput} type="password" placeholder='Password' name="password" required />
-                    </div>
-                    
-                    <div className="form-errors">
-                        <ul>
-                        </ul>
                     </div>
 
                     <div>

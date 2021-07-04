@@ -33,7 +33,7 @@ class App extends Component {
             // },
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Cache': 'no-cache'
+                'Cache': 'no-cache',
             },
             body: new URLSearchParams({
                 email: username,

@@ -8,9 +8,9 @@ class About extends Component {
                 <section>
                     <img src={nameLogo} alt='Logo'/>
                     <hr />
-                    <p>Concept of a banking app for managing users.</p>
+                    <p>Concept of a Banking App for user management.</p>
                     <p>Frontend made using ReactJS</p>
-                    <p>Backend made using NodeJS, visit API <a href="https://reactbank-back-end.herokuapp.com/" target="_blank" rel="noopener noreferrer">here</a></p>
+                    <p>Backend made using Python + Flask, visit API <a href="https://reactbank-back-end.herokuapp.com/" target="_blank" rel="noopener noreferrer">here</a></p>
                 </section>
     
                 <div className='login-form_footer'>
