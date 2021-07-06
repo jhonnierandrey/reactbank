@@ -13,11 +13,30 @@ class Home extends Component {
                     <button type="button" className="btn btn-outline-danger" data-toggle="modal" data-target="#withdrawalModal"><i className="fas fa-arrow-circle-up"></i> Withdrawal</button>
                     <button type="button" className="btn btn-outline-info" data-toggle="modal" data-target="#transferModal"><i className="fas fa-arrow-circle-up"></i> Transfer</button>
                 </article>
-                <hr />
+                <br />
                 <article className="transactions">
-                    <ul>
-                        <li>No recent transactions.</li>
-                    </ul>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Date and Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { this.props.userTransactions.map((row, index) => (
+                                <tr key={index}>
+                                    <td>{row.id}</td>
+                                    <td>{row.type}</td>
+                                    <td>{row.description}</td>
+                                    <td>{row.amount}</td>
+                                    <td>{row.time}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </article>
             </section>
         )

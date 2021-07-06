@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
 class Modal extends Component {
-
     render() {
         return(
             <div>
@@ -36,16 +35,19 @@ class Modal extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                            <form action="/dashboard">
-                                <div className="form-group">
-                                    <input type="number" autoComplete="off" className="form-control" id="withdrawal" aria-describedby="emailHelp" placeholder={this.props.userData.balance} required/>
-                                    <small id="emailHelp" className="form-text text-muted">Enter the amount you wish to withdrawal.</small>
-                                </div>
-                            </form>
+                                <form>
+                                    <div className="form-group">
+                                        <input type="number" autoComplete="off" className="form-control" id="withdrawal" aria-describedby="emailHelp" name='withdrawal-amount' placeholder={this.props.userData.balance} required/>
+                                        <small id="emailHelp" className="form-text text-muted">Enter the amount you wish to withdrawal.</small>
+                                    </div>
+                                </form>
+                            </div>
+                            <div className="modal-msg wdw-msg">
+
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                                <button type="submit" className="btn btn-outline-danger"><i className="fas fa-arrow-circle-up"></i> Withdrawal</button>
+                                <button onClick={this.props.withdrawal} type="submit" className="btn btn-outline-danger"><i className="fas fa-arrow-circle-up"></i> Withdrawal</button>
                             </div>
                         </div>
                     </div>

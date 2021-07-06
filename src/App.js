@@ -49,14 +49,10 @@ class App extends Component {
         document.querySelector(".modal-container").style.display = 'flex';
 
         const url = "http://localhost:3001/api/register";
-        // localStorage.setItem("token", "value")
 
         fetch(url, {
             method: 'POST',
             credentials: 'include',
-            // headers: {
-            //     'Content-Type': 'application/json; charset=utf-8',
-            // },
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Cache': 'no-cache'
@@ -69,7 +65,6 @@ class App extends Component {
                 confirmation: confirmation,
             })
         })
-        // .then(response => console.log(response))
         .then(response => response.json())
         .then(result => {
             if(result.msg === 'User created'){
@@ -89,30 +84,13 @@ class App extends Component {
                 formErrors.innerHTML = `<li>${result.msg}</li>`;
             }
         })
-        // .then(this.verifyLogin)
     }
     
     verifyLogin = () => {
         if(this.state.msg === 'User Logged In'){
-            // future-feature 
-            // const cookies = new Cookies();
-            // cookies.set('currentUser', this.state.username, {path: '/'});
             
             // get user data
             const url = "http://localhost:3001/api/account";
-
-            // axios.post(url, {
-            //     withCredentials: true,
-            //     credentials: 'include',
-            //     headers: {
-            //         'Content-Type': 'application/json; charset=utf-8',
-            //     }
-            // })
-            // .then((response) => {
-            //     console.log(response)
-            // }, (error) => {
-            //     console.log(error);
-            // });
             
             fetch(url, {
                 method: 'POST',
@@ -125,18 +103,16 @@ class App extends Component {
             })
             .then(response => response.json())
             .then(result => this.setState({ userData : result.userData }))
-            .then(this.saveUSER)
+            .then(() => {
+                window.localStorage.setItem('userData', JSON.stringify(this.state.userData))
+                window.location.href = '/dashboard'
+            })
         }else{
             // hide modal & show login screen + errors
             document.querySelector(".modal-container").style.display = 'none';
             document.querySelector(".form-errors").style.display = 'initial';
             document.querySelector(".form-errors").innerHTML = this.state.msg;
         }
-    }
-
-    saveUSER = () => {
-        window.localStorage.setItem('userData', JSON.stringify(this.state.userData))
-        window.location.href = '/dashboard'
     }
 
     render() {
