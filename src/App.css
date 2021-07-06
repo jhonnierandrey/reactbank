@@ -82,6 +82,12 @@ body {
   color: #000000;
 }
 
+.modal-msg {
+  color: #FF0000;
+  font-size: medium;
+  padding-bottom: 1rem;
+}
+
 @media only screen and (max-width: 768px) {
   .screen-alert {
     display: none;
