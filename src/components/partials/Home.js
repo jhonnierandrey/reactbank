@@ -26,7 +26,7 @@ class Home extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            { this.props.userTransactions.map((row, index) => (
+                            { this.props.userTransactions?.map((row, index) => (
                                 <tr key={index}>
                                     <td>{row.id}</td>
                                     <td>{row.type}</td>

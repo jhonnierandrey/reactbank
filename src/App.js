@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-// import Cookies from 'universal-cookie'; will be implemented soon.
-
-// import axios from 'axios';
 
 import './App.css';
 import nameLogo from './images/reactBank.png';
@@ -22,15 +19,11 @@ class App extends Component {
     callapi = (username, password) => {
         document.querySelector(".modal-container").style.display = 'flex';
 
-        const url = "http://localhost:3001/api/login";
-        // localStorage.setItem("token", "value")
+        const url = `${process.env.REACT_APP_API_URL}/api/login`;
 
         fetch(url, {
             method: 'POST',
             credentials: 'include',
-            // headers: {
-            //     'Content-Type': 'application/json; charset=utf-8',
-            // },
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Cache': 'no-cache',
@@ -48,7 +41,7 @@ class App extends Component {
     createUserApi = (name, lastName, username, password, confirmation, ) => {
         document.querySelector(".modal-container").style.display = 'flex';
 
-        const url = "http://localhost:3001/api/register";
+        const url = `${process.env.REACT_APP_API_URL}/api/register`;
 
         fetch(url, {
             method: 'POST',
@@ -90,7 +83,7 @@ class App extends Component {
         if(this.state.msg === 'User Logged In'){
             
             // get user data
-            const url = "http://localhost:3001/api/account";
+            const url = `${process.env.REACT_APP_API_URL}/api/account`;
             
             fetch(url, {
                 method: 'POST',

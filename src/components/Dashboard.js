@@ -14,7 +14,7 @@ class Dashboard extends Component {
         if(window.localStorage.getItem('userData')){
             
             // get user data
-            const url = "http://localhost:3001/api/account/transactions";
+            const url = `${process.env.REACT_APP_API_URL}/api/account/transactions`;
             
             fetch(url, {
                 method: 'POST',
@@ -24,7 +24,16 @@ class Dashboard extends Component {
                 }
             })
             .then(response => response.json())
-            .then(result => this.setState({ userTransactions : result.userTransactions }))
+            .then(result => {
+                // checks if api is returning transactions
+                if(result.msg === 'User transactions'){
+                    // force user log out
+                    this.setState({ userTransactions : result.userTransactions })
+                }else{
+                    localStorage.clear();
+                    window.location.href = '/'
+                }
+            })
             // .then(result => this.setState({ userData : result.userData }))
             // .then(() => {
             //     window.localStorage.setItem('userData', JSON.stringify(this.state.userData))
@@ -47,7 +56,7 @@ class Dashboard extends Component {
             return;
         }else{
             // if quick check is passed, withdrawal end point to process the request
-            const url = "http://localhost:3001/api/account/wdw";
+            const url = `${process.env.REACT_APP_API_URL}/api/account/wdw`;
 
             fetch(url, {
                 method: 'POST',
