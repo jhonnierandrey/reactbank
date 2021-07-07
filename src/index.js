@@ -35,8 +35,26 @@ if (window.localStorage.getItem('userData')) {
       path: "/logout",
       exact: true,
       component: () => {
-        localStorage.clear();
-        window.location.href = '/'
+        // logout api/forget user from api
+        const url = `${process.env.REACT_APP_API_URL}/api/logout`;
+        fetch(url, {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Cache': 'no-cache'
+          }
+        })
+        .then(response => response.json())
+        .then(result => {
+            if(result.msg === 'User is now Logged Out'){
+              localStorage.clear();
+              window.location.href = '/'
+            }else{
+              localStorage.clear();
+              window.location.href = '/'
+            }
+        })
       }
     },
   ]
@@ -61,7 +79,11 @@ const routing = (
           component={route.component}
         />
       ))}
-      <Route component={ () => {window.location.href = '/'}} />
+      <Route component={ () => {
+          localStorage.clear();
+          window.location.href = '/'
+        }}
+      />
     </Switch>
   </Router>
 )
