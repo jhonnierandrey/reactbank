@@ -81,7 +81,7 @@ const routing = (
       ))}
       <Route component={ () => {
           localStorage.clear();
-          window.location.href = '/'
+          window.location.href = '/';
         }}
       />
     </Switch>

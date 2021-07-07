@@ -34,11 +34,6 @@ class Dashboard extends Component {
                     window.location.href = '/'
                 }
             })
-            // .then(result => this.setState({ userData : result.userData }))
-            // .then(() => {
-            //     window.localStorage.setItem('userData', JSON.stringify(this.state.userData))
-            //     window.location.href = '/dashboard'
-            // })
         }else{
             // force user log out
             localStorage.clear();

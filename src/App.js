@@ -21,6 +21,7 @@ class App extends Component {
 
         const url = `${process.env.REACT_APP_API_URL}/api/login`;
 
+        // login user and getting user data
         fetch(url, {
             method: 'POST',
             credentials: 'include',
@@ -34,8 +35,36 @@ class App extends Component {
             })
         })
         .then(response => response.json())
-        .then(result => this.setState({ msg : result.msg, token : result.token }))
-        .then(this.verifyLogin)
+        .then(result => {
+            if(result.msg === 'User Logged In'){
+                // get user data
+                const url = `${process.env.REACT_APP_API_URL}/api/account`;
+                fetch(url, {
+                    method: 'POST',
+                    // credentials: "same-origin",
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'token' : result.token,
+                    }
+                })
+                .then(response => response.json())
+                .then(result => {
+                    if(result.msg === 'User data'){
+                        this.setState({ userData : result.userData })
+                    }else{
+                        document.querySelector(".modal-container").style.display = 'none';
+                        document.querySelector(".form-errors").style.display = 'initial';
+                        document.querySelector(".form-errors").innerHTML = result.msg;
+                    }
+                })
+            }else{
+                // hide modal & show login screen + errors
+                document.querySelector(".modal-container").style.display = 'none';
+                document.querySelector(".form-errors").style.display = 'initial';
+                document.querySelector(".form-errors").innerHTML = result.msg;
+            }
+        })
     }
 
     createUserApi = (name, lastName, username, password, confirmation, ) => {
@@ -77,35 +106,6 @@ class App extends Component {
                 formErrors.innerHTML = `<li>${result.msg}</li>`;
             }
         })
-    }
-    
-    verifyLogin = () => {
-        if(this.state.msg === 'User Logged In'){
-            
-            // get user data
-            const url = `${process.env.REACT_APP_API_URL}/api/account`;
-            
-            fetch(url, {
-                method: 'POST',
-                // credentials: "same-origin",
-                credentials: 'include',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'token' : this.state.token,
-                }
-            })
-            .then(response => response.json())
-            .then(result => this.setState({ userData : result.userData }))
-            .then(() => {
-                window.localStorage.setItem('userData', JSON.stringify(this.state.userData))
-                window.location.href = '/dashboard'
-            })
-        }else{
-            // hide modal & show login screen + errors
-            document.querySelector(".modal-container").style.display = 'none';
-            document.querySelector(".form-errors").style.display = 'initial';
-            document.querySelector(".form-errors").innerHTML = this.state.msg;
-        }
     }
 
     render() {
