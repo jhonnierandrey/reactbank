@@ -52,6 +52,8 @@ class App extends Component {
                 .then(result => {
                     if(result.msg === 'User data'){
                         this.setState({ userData : result.userData })
+                        window.localStorage.setItem('userData', JSON.stringify(this.state.userData))
+                        window.location.href = '/dashboard'
                     }else{
                         document.querySelector(".modal-container").style.display = 'none';
                         document.querySelector(".form-errors").style.display = 'initial';
