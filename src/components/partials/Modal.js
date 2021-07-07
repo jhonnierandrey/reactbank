@@ -9,17 +9,20 @@ class Modal extends Component {
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Reset balance</h5>
+                                <h5 className="modal-title" id="exampleModalLabel">Deposit Money</h5>
                                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <h1>$1,000.00</h1>
+                                <h1>+$1,000.00</h1>
+                            </div>
+                            <div className="modal-msg dpst-msg">
+
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-outline-success"><i className="fas fa-arrow-circle-down"></i> Deposit</button>
+                                <button onClick={this.props.depositMoney} type="button" className="btn btn-outline-success"><i className="fas fa-arrow-circle-down"></i> Deposit</button>
                             </div>
                         </div>
                     </div>
@@ -63,20 +66,56 @@ class Modal extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <form action="/dashboard">
+                                <form onSubmit={this.props.transfer} id="transfer-form">
                                     <div className="form-group">
-                                        <input type="email" autoComplete="off" className="form-control" id="transfer-email" aria-describedby="emailHelp" placeholder="E-mail" required/>
+                                        <input type="email" autoComplete="off" className="form-control" id="transfer-email" name="transfer-email" aria-describedby="emailHelp" placeholder="E-mail" required/>
                                         <small id="emailHelp" className="form-text text-muted">Enter the email account.</small>
                                     </div>
                                     <div className="form-group">
-                                        <input type="number" autoComplete="off" className="form-control" id="withdrawal" aria-describedby="emailHelp" placeholder={this.props.userData.balance} required/>
+                                        <input type="number" autoComplete="off" className="form-control" id="transfer-amount" name="transfer-amount" aria-describedby="emailHelp" placeholder={this.props.userData.balance} required/>
                                         <small id="emailHelp" className="form-text text-muted">Enter the amount you wish to transfer.</small>
                                     </div>
                                 </form>
                             </div>
+                            <div className="modal-msg trsf-msg">
+
+                            </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-outline-info"><i className="fas fa-arrow-circle-up"></i> Transfer</button>
+                                <button type="submit" form='transfer-form' className="btn btn-outline-info"><i className="fas fa-arrow-circle-up"></i> Transfer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* Change Password Modal */}
+                <div className="modal fade modal-dashboard" id="accountUpdate" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exampleModalLabel">Change password</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <form onSubmit={this.props.accountUpdate} id="account-update">
+                                    <div className="form-group">
+                                        <input type="password" autoComplete="off" className="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Current password" required/>
+                                    </div>
+                                    <div className="form-group">
+                                        <input type="password" autoComplete="off" className="form-control" id="password-new" name="password-new" aria-describedby="emailHelp" placeholder="New password" required/>
+                                    </div>
+                                    <div className="form-group">
+                                        <input type="password" autoComplete="off" className="form-control" id="confirmation" name="confirmation" aria-describedby="emailHelp" placeholder="Confirm new password" required/>
+                                    </div>
+                                </form>
+                            </div>
+                            <div className="modal-msg usrup-msg">
+
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-outline-danger" data-dismiss="modal">Close</button>
+                                <button type="submit" form='account-update' className="btn btn-outline-success"><i className="fas fa-user-edit"></i> Change password</button>
                             </div>
                         </div>
                     </div>

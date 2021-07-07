@@ -26,9 +26,9 @@ class Home extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            { this.props.userTransactions?.map((row, index) => (
+                            { this.props.userTransactions.length <= 0 ? <tr><td colSpan="5">No transactions yet</td></tr> : this.props.userTransactions.map((row, index) => (
                                 <tr key={index}>
-                                    <td>{row.id}</td>
+                                    <td>{index + 1}</td>
                                     <td>{row.type}</td>
                                     <td>{row.description}</td>
                                     <td>{row.amount}</td>
