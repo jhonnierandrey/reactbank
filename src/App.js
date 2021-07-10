@@ -39,13 +39,13 @@ class App extends Component {
             if(result.msg === 'User Logged In'){
                 // get user data
                 const url = `${process.env.REACT_APP_API_URL}/api/account`;
+                
                 fetch(url, {
                     method: 'POST',
-                    // credentials: "same-origin",
                     credentials: 'include',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
-                        'token' : result.token,
+                        'Cache': 'no-cache',
                     }
                 })
                 .then(response => response.json())
