@@ -27,7 +27,6 @@ class App extends Component {
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Cache': 'no-cache',
             },
             body: new URLSearchParams({
                 email: username,
@@ -45,7 +44,6 @@ class App extends Component {
                     credentials: 'include',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
-                        'Cache': 'no-cache',
                     }
                 })
                 .then(response => response.json())
