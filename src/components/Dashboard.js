@@ -19,6 +19,7 @@ class Dashboard extends Component {
             fetch(url, {
                 method: 'POST',
                 credentials: 'include',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Cache': 'no-cache'
@@ -57,6 +58,7 @@ class Dashboard extends Component {
             fetch(url, {
                 method: 'POST',
                 credentials: 'include',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Cache': 'no-cache'
@@ -95,6 +97,7 @@ class Dashboard extends Component {
             fetch(url, {
                 method: 'POST',
                 credentials: 'include',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Cache': 'no-cache'
@@ -137,6 +140,7 @@ class Dashboard extends Component {
             fetch(url, {
                 method: 'POST',
                 credentials: 'include',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Cache': 'no-cache'
@@ -182,6 +186,7 @@ class Dashboard extends Component {
             fetch(url, {
                 method: 'POST',
                 credentials: 'include',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Cache': 'no-cache'

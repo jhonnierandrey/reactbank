@@ -25,8 +25,9 @@ class App extends Component {
         fetch(url, {
             method: 'POST',
             credentials: 'include',
+            mode : 'cors',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
             body: new URLSearchParams({
                 email: username,
@@ -42,9 +43,10 @@ class App extends Component {
                 fetch(url, {
                     method: 'POST',
                     credentials: 'include',
+                    mode : 'cors',
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    }
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
                 })
                 .then(response => response.json())
                 .then(result => {

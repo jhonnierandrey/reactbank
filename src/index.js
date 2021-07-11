@@ -12,13 +12,6 @@ import {
   Switch,
 } from 'react-router-dom';
 
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
 let routes = [];
 
 if (window.localStorage.getItem('userData')) {
