@@ -12,6 +12,7 @@ $darkBlue : #326F80;
 $black : #000000;
 $white : #FFFFFF;
 $red : #FF0000;
+$green : #00FF00;
 $transparent-black: rgba($color: #000000, $alpha: 0.54);
 
 /* EXTRA VARIANTS */
@@ -104,6 +105,20 @@ body {
   color: $red;
   font-size: medium;
   padding-bottom: 1rem;
+}
+
+// styles for type of transaction
+
+.transType {
+
+}
+
+.debit {
+  color: $red;
+}
+
+.credit {
+  color: $green;
 }
 
 @media only screen and (max-width: 768px) {
@@ -255,6 +270,10 @@ body {
 
   section.account {
     display: none;
+  }
+
+  .table {
+    font-size: medium;
   }
 
   .dashboard-container section {

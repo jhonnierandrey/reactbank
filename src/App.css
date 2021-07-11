@@ -88,6 +88,14 @@ body {
   padding-bottom: 1rem;
 }
 
+.debit {
+  color: #FF0000;
+}
+
+.credit {
+  color: #00FF00;
+}
+
 @media only screen and (max-width: 768px) {
   .screen-alert {
     display: none;
@@ -221,6 +229,10 @@ body {
 
   section.account {
     display: none;
+  }
+
+  .table {
+    font-size: medium;
   }
 
   .dashboard-container section {
