@@ -2,6 +2,26 @@ import React, {Component} from 'react';
 
 class Home extends Component {
 
+    componentDidMount(){
+        
+        // let the transactions be mapped first
+        setTimeout(() => {
+            let transType = document.querySelectorAll('.transType')
+            let debit = '<i class="fas fa-arrow-circle-up"></i>'
+            let credit = '<i class="fas fa-arrow-circle-down"></i>'
+
+            for (let i = 0; i < transType.length; i++) {
+                if (transType[i].innerText === 'Debit') {
+                    transType[i].className += " debit"
+                    transType[i].innerHTML = debit
+                }else if (transType[i].innerText === 'Credit') {
+                    transType[i].className += " credit"
+                    transType[i].innerHTML = credit
+                }
+            }
+        }, 2000)
+    }
+
     render() {
         return(
             <section className="home">
@@ -22,14 +42,14 @@ class Home extends Component {
                                 <th scope="col">Type</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Amount</th>
-                                <th scope="col">Date and Time</th>
+                                <th scope="col">Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             { this.props.userTransactions.length <= 0 ? <tr><td colSpan="5">No transactions yet</td></tr> : this.props.userTransactions.map((row, index) => (
                                 <tr key={index}>
                                     <td>{index + 1}</td>
-                                    <td>{row.type}</td>
+                                    <td className='transType'>{row.type}</td>
                                     <td>{row.description}</td>
                                     <td>{row.amount}</td>
                                     <td>{row.time}</td>
