@@ -1,28 +1,56 @@
-# ReactBank
-React-based Mobile Banking App
-(This will be updated soon.)
+# ReactBank (Frontend)
 
-## Available Scripts
+#### Description:
+<p> Before start getting into my Final Project details, I really want to thank the CS50 Team for the amazing quality of the lectures, each detail was incredible usefull and I will be always remembering all that I learned with you. </p>
+<p>David, Doug, Brian, you guys really enjoy teaching and we can feel it with every lecture, thank you for that willingness to share what you know, really appreciate it.</p>
+<p> This project was inspired by CS50 Financial practice, I created this FullStack App that uses a ReactJS FrontEnd, also some great technologies such as: Bootstrap, CSS, SCSS and JavaScript. </p>
 
-In the project directory, you can run:
+I will be updating this app, deployed version will be soon available through :
 
-### `npm start`
+- FrontEnd : <URL HERE> https://reactbank-front-end.netlify.app/
+- BackEnd : <URL HERE> https://reactbank-back-end.herokuapp.com/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# THANK YOU [CS50](https://cs50.harvard.edu/x/2021/) !
 
-### `npm test`
+## How to use ReactBank Front-End:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone this repo
 
-### `npm run build`
+    ```bash
+        git clone https://github.com/jhonnierandrey/reactbank
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install all the required dependencies.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    ```bash
+        npm i
+    ```
+
+3. To start on your local machine (starts using server.js):
+
+    ```bash
+        npm start
+    ```
+
+4. OPTIONAL : To start on your local machine (development):
+
+    ```bash
+        npm run-script devp
+    ```
+
+## Contributing
+
+1. Fork it (<https://github.com/jhonnierandrey/reactbank/fork>)
+2. Create your own branch (`git checkout -b newFeature/yourIdea`)
+3. Commit your changes (`git commit -m 'Add your commit'`)
+4. Push to the branch (`git push`)
+5. Create a new Pull Request
+
+### References
+
+[ReactJS](https://reactjs.org/)
+
+### License
+
+This project is licensed under the MIT License

@@ -5,21 +5,21 @@ class Home extends Component {
     componentDidMount(){
         
         // let the transactions be mapped first
-        setTimeout(() => {
-            let transType = document.querySelectorAll('.transType')
-            let debit = '<i class="fas fa-arrow-circle-up"></i>'
-            let credit = '<i class="fas fa-arrow-circle-down"></i>'
+        // setTimeout(() => {
+        //     let transType = document.querySelectorAll('.transType')
+        //     let debit = '<i class="fas fa-arrow-circle-up"></i>'
+        //     let credit = '<i class="fas fa-arrow-circle-down"></i>'
 
-            for (let i = 0; i < transType.length; i++) {
-                if (transType[i].innerText === 'Debit') {
-                    transType[i].className += " debit"
-                    transType[i].innerHTML = debit
-                }else if (transType[i].innerText === 'Credit') {
-                    transType[i].className += " credit"
-                    transType[i].innerHTML = credit
-                }
-            }
-        }, 2000)
+        //     for (let i = 0; i < transType.length; i++) {
+        //         if (transType[i].innerText === 'Debit') {
+        //             transType[i].className += " debit"
+        //             transType[i].innerHTML = debit
+        //         }else if (transType[i].innerText === 'Credit') {
+        //             transType[i].className += " credit"
+        //             transType[i].innerHTML = credit
+        //         }
+        //     }
+        // }, 1000)
     }
 
     render() {
